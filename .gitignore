@@ -40,3 +40,4 @@ GoldenDict.xcodeproj/
 *.opensdf
 *.suo
 *.vcxproj.user
+.idea
