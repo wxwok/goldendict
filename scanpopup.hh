@@ -203,6 +203,8 @@ private slots:
   void hideTimerExpired();
   void altModeExpired();
   void altModePoll();
+  /// open word in browser
+  void openInBrowser();
 
   /// Called repeatedly once the popup is initially engaged and we monitor the
   /// mouse as it may move away from the window. This simulates mouse grab, in

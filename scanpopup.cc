@@ -149,6 +149,8 @@ ScanPopup::ScanPopup( QWidget * parent,
   connect( ui.translateBox->wordList(), SIGNAL( statusBarMessage( QString const &, int, QPixmap const & ) ),
            this, SLOT( showStatusBarMessage( QString const &, int, QPixmap const & ) ) );
 
+  connect( ui.openInBrowser, SIGNAL( released()), this, SLOT(openInBrowser()));
+
   ui.pronounceButton->hide();
 
   ui.groupList->fill( groups );
@@ -1261,6 +1263,15 @@ void ScanPopup::on_sendWordToFavoritesButton_clicked()
 
   ui.sendWordToFavoritesButton->setIcon( blueStarIcon );
 }
+
+
+void ScanPopup::openInBrowser()
+{
+  if (!isVisible())
+    return;
+  QDesktopServices::openUrl(QUrl("https://www.google.com/search?q=" + definition->getTitle(), QUrl::TolerantMode));
+}
+
 
 void ScanPopup::switchExpandOptionalPartsMode()
 {
