@@ -41,3 +41,4 @@ GoldenDict.xcodeproj/
 *.suo
 *.vcxproj.user
 .idea
+.qmake.stash
