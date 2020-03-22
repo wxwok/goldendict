@@ -150,6 +150,7 @@ ScanPopup::ScanPopup( QWidget * parent,
            this, SLOT( showStatusBarMessage( QString const &, int, QPixmap const & ) ) );
 
   connect( ui.openInBrowser, SIGNAL( released()), this, SLOT(openInBrowser()));
+  connect( ui.openEJoy, SIGNAL( released()), this, SLOT(openInEJoy()));
 
   ui.pronounceButton->hide();
 
@@ -1269,7 +1270,18 @@ void ScanPopup::openInBrowser()
 {
   if (!isVisible())
     return;
-  QDesktopServices::openUrl(QUrl("https://www.google.com/search?q=" + definition->getTitle(), QUrl::TolerantMode));
+  QProcess process;
+  QString chrome = "/opt/google/chrome/chrome --user-data-dir=/home/xuewen/AppData/chrome/xuewen.ok@gmail.com https://www.google.com/search?q=" + definition->getTitle();
+  process.startDetached(chrome);
+}
+
+void ScanPopup::openInEJoy()
+{
+  if (!isVisible())
+    return;
+  QProcess process;
+  QString chrome = "/opt/google/chrome/chrome --user-data-dir=/home/xuewen/AppData/chrome/xuewen.ok@gmail.com chrome-extension://amfojhdiedpdnlijjbhjnhokbnohfdfb/pop-ups/translation.html?text=" + definition->getTitle();
+  process.startDetached(chrome);
 }
 
 

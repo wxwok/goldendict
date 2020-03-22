@@ -141,7 +141,7 @@ public:
 
     for( size_t left = baseText.size(); left; )
     {
-      if( *nextChar >= 0x10000U )
+      if( *nextChar >= gd::wchar {0x10000U} )
       {
         // Will be translated into surrogate pair
         normText.push_back( *nextChar );

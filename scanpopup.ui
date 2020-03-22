@@ -191,6 +191,12 @@
            </item>
            <item>
             <widget class="QPushButton" name="openInBrowser">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="toolTip">
               <string>Search word in google</string>
              </property>
@@ -198,8 +204,22 @@
               <string/>
              </property>
              <property name="icon">
-              <iconset resource="resources.qrc">
-               <normaloff>:/icons/internet.png</normaloff>:/icons/internet.png</iconset>
+              <iconset>
+               <normaloff>icons/chromium.png</normaloff>icons/chromium.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="openEJoy">
+             <property name="toolTip">
+              <string>Open in EJoy.</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>icons/ejoy.png</normaloff>icons/ejoy.png</iconset>
              </property>
             </widget>
            </item>
