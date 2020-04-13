@@ -213,6 +213,24 @@ MainWindow::MainWindow( Config::Class & cfg_ ):
   connect( navPronounce, SIGNAL( triggered() ),
            this, SLOT( pronounce() ) );
 
+  // browser
+  navBrowser = navToolbar->addAction( QIcon( ":/icons/chromium.png" ), tr( "Open in Browser (Alt+B)" ) );
+  navBrowser->setShortcut( QKeySequence( "Alt+B" ) );
+  navBrowser->setEnabled( true );
+  navToolbar->widgetForAction( navBrowser )->setObjectName( "browserButton" );
+
+  connect( navBrowser, SIGNAL( triggered() ),
+           this, SLOT( browser() ) );
+
+  // eJoy
+  navEJoy = navToolbar->addAction( QIcon( ":/icons/ejoy.png" ), tr( "Open eJoy (Alt+E)" ) );
+  navEJoy->setShortcut( QKeySequence( "Alt+E" ) );
+  navEJoy->setEnabled( true );
+  navToolbar->widgetForAction( navEJoy )->setObjectName( "eJoyButton" );
+
+  connect( navEJoy, SIGNAL( triggered() ),
+           this, SLOT( ejoy() ) );
+
   // zooming
   // named separator (to be able to hide it via CSS)
   navToolbar->widgetForAction( navToolbar->addSeparator() )->setObjectName( "separatorBeforeZoom" );
@@ -1894,6 +1912,22 @@ void MainWindow::pronounce( ArticleView * view )
     view->playSound();
   else
     getCurrentArticleView()->playSound();
+}
+
+void MainWindow::browser()
+{
+  if (!isVisible())
+    return;
+  QProcess process;
+  QString chrome = "/opt/google/chrome/chrome --user-data-dir=/home/xuewen/AppData/chrome/xuewen.ok@gmail.com https://www.google.com/search?q=" + this->getTranslateLineText();
+  process.startDetached(chrome);
+}
+
+void MainWindow::ejoy()
+{
+  QProcess process;
+  QString chrome = "/opt/google/chrome/chrome --user-data-dir=/home/xuewen/AppData/chrome/xuewen.ok@gmail.com chrome-extension://amfojhdiedpdnlijjbhjnhokbnohfdfb/pop-ups/translation.html?text=" + this->getTranslateLineText();
+  process.startDetached(chrome);
 }
 
 void MainWindow::showDictsPane( )

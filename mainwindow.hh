@@ -133,6 +133,7 @@ private:
   QAction * zoomIn, * zoomOut, * zoomBase;
   QAction * wordsZoomIn, * wordsZoomOut, * wordsZoomBase;
   QAction * addToFavorites, * beforeAddToFavoritesSeparator;
+  QAction * navBrowser, * navEJoy;
   QMenu trayIconMenu;
   QMenu * tabMenu;
   QAction * menuButtonAction;
@@ -335,6 +336,8 @@ private slots:
   /// reference, if it has any.
   /// If view is 0, the operation is done for the currently open tab.
   void pronounce( ArticleView * view = 0 );
+  void browser();
+  void ejoy();
 
   void zoomin();
   void zoomout();
