@@ -204,8 +204,8 @@
               <string/>
              </property>
              <property name="icon">
-              <iconset>
-               <normaloff>icons/chromium.png</normaloff>icons/chromium.png</iconset>
+              <iconset resource="resources.qrc">
+               <normaloff>:/icons/chromium.png</normaloff>:/icons/chromium.png</iconset>
              </property>
             </widget>
            </item>
@@ -218,8 +218,8 @@
               <string/>
              </property>
              <property name="icon">
-              <iconset>
-               <normaloff>icons/ejoy.png</normaloff>icons/ejoy.png</iconset>
+              <iconset resource="resources.qrc">
+               <normaloff>:/icons/ejoy.png</normaloff>:/icons/ejoy.png</iconset>
              </property>
             </widget>
            </item>
